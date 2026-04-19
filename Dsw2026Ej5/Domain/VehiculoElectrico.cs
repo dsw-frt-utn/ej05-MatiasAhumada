@@ -21,6 +21,12 @@ public class VehiculoElectrico : Vehiculo
 
     public override double CalcularConsumo(double kilometros)
     {
-        return kilometros * kwhBase;
+        double consumoEstimado = kilometros / 100 * kwhBase;
+        if (GetCapacidadCarga() > 1200)
+        {
+         consumoEstimado *= 1.15;   
+        }
+        return consumoEstimado;
+
     }
 }
